@@ -5,7 +5,7 @@ import com.opencsv.CSVReader;
 import model.Organization;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import step.ArchiveWorkStep;
+import steps.ArchiveWorkFileStep;
 
 
 import java.io.ByteArrayInputStream;
@@ -23,7 +23,7 @@ public class FileParseTest {
     private final static ClassLoader cl = FileParseTest.class.getClassLoader();
     private final static ObjectMapper mapper = new ObjectMapper();
 
-    private final ArchiveWorkStep step = new ArchiveWorkStep();
+    private final ArchiveWorkFileStep step = new ArchiveWorkFileStep();
 
     @Test
     void theZipFileShouldHaveThreeDocument() throws Exception {
