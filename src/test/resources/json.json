@@ -1,0 +1,21 @@
+{
+  "Organization": "School №8",
+  "Description": "list of students",
+  "Students": [
+    {
+      "Number": 1,
+      "Lastname": "Ivanov",
+      "Group": "group1"
+    },
+    {
+      "Number": 2,
+      "Lastname": "Petrov",
+      "Group": "group2"
+    },
+    {
+      "Number": 3,
+      "Lastname": "Popov",
+      "Group": "group1"
+    }
+  ]
+}
