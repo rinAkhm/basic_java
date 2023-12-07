@@ -15,11 +15,7 @@ public class Main {
     public static void main(String[] args) {
         new UiComponents(
                 new LoginUiComponent(
-                        new FileUserRepository(
-                                Path.of(
-                                        "users.csv"
-                                )
-                        )
+                        new FileUserRepository(Path.of("users.csv"))
                 ),
                 new NotesUiComponent(
                         new NoteRepository.MockNoteRepository()
