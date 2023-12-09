@@ -2,6 +2,7 @@ package qa.guru.data;
 
 import qa.guru.domain.Note;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 public interface NoteRepository {
     List<Note> findAllByUsername(String username);
 
-    void save(Note note);
+    void save(Note note) throws IOException;
 
     class MockNoteRepository implements NoteRepository {
     private static final List<Note> mockNotes = new ArrayList<>(

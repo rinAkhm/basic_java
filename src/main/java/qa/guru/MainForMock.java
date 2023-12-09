@@ -1,21 +1,22 @@
-package guru.qa;
+package qa.guru;
 
-
-import qa.guru.data.FileUserRepository;
+import qa.guru.data.DataBaseNotesRepository;
 import qa.guru.data.NoteRepository;
+import qa.guru.data.UserRepository;
 import qa.guru.service.Session;
 import qa.guru.view.LoginUiComponent;
 import qa.guru.view.NotesUiComponent;
 import qa.guru.view.UiComponents;
 
-import java.nio.file.Path;
+import java.io.IOException;
 
-public class Main {
 
-    public static void main(String[] args) {
+public class MainForMock {
+
+    public static void main(String[] args) throws IOException {
         new UiComponents(
                 new LoginUiComponent(
-                        new FileUserRepository(Path.of("users.csv"))
+                        new UserRepository.MockUserRepository()
                 ),
                 new NotesUiComponent(
                         new NoteRepository.MockNoteRepository()

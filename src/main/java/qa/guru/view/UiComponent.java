@@ -3,9 +3,10 @@ package qa.guru.view;
 import qa.guru.service.Session;
 
 import javax.swing.*;
+import java.io.IOException;
 
 public interface UiComponent {
-    Session render(Session session);
+    Session render(Session session) throws IOException;
 
     class MockUiComponent implements UiComponent {
         @Override

@@ -6,6 +6,7 @@ import qa.guru.domain.User;
 import qa.guru.service.Session;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,7 +18,7 @@ public class NotesUiComponent implements UiComponent {
     }
 
     @Override
-    public Session render(Session session) {
+    public Session render(Session session) throws IOException {
         User user = session.unwrap();
         showNotes(noteRepository.findAllByUsername(
                 user.username()
