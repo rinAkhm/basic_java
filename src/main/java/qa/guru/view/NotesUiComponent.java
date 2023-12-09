@@ -20,23 +20,26 @@ public class NotesUiComponent implements UiComponent {
     @Override
     public Session render(Session session) throws IOException {
         User user = session.unwrap();
-        showNotes(noteRepository.findAllByUsername(
-                user.username()
-        ));
-        int code = getConfirmation();
-        if (code == 0) {
-            noteRepository.save(
-                    new Note(
-                            user.username(),
-                            JOptionPane.showInputDialog("New Note:")
-                    )
-            );
-            showNotes(
-                    noteRepository.findAllByUsername(
-                            user.username()
-                    )
-            );
+        List<Note> notes = noteRepository.findAllByUsername(user.username());
+        if(notes.size() != 0) {
+            showNotes(notes);
+            int code = getConfirmation();
+            if (code == 0) {
+                noteRepository.save(
+                        new Note(
+                                user.username(),
+                                JOptionPane.showInputDialog("New Note:")
+                        )
+                );
+                showNotes(
+                        noteRepository.findAllByUsername(
+                                user.username()
+                        )
+                );
+            }
+            return session;
         }
+        showEmptyNoteInfo();
         return session;
     }
 
@@ -57,6 +60,15 @@ public class NotesUiComponent implements UiComponent {
         JOptionPane.showMessageDialog(
                 null,
                 notesAsString,
+                "Current notes:",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+    }
+
+    private void showEmptyNoteInfo(){
+        JOptionPane.showMessageDialog(
+                null,
+                "You has empty notes",
                 "Current notes:",
                 JOptionPane.INFORMATION_MESSAGE
         );

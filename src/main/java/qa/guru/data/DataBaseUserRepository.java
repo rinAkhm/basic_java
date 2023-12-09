@@ -8,7 +8,7 @@ import qa.guru.domain.User;
 import java.util.List;
 import java.util.Optional;
 
-public class DataBaseNotesRepository implements UserRepository{
+public class DataBaseUserRepository implements UserRepository{
 
     private static final JdbcTemplate  template = new JdbcTemplate(DataSourceProvider.INSTANCE.getInstance());
 
